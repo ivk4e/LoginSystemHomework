@@ -28,10 +28,8 @@ namespace LoginSystemHomework
 				}
 			}
 
-			var db_file = new FileDatabase();
-
-			var loginUser = new LoginUser(db_file);
-			var registerUser = new RegistrationUser(db_file);
+			var loginUser = new LoginUser();
+			var registerUser = new RegistrationUser();
 
 			if (choice == "n")
 			{

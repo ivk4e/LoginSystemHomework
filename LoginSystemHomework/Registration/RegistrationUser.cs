@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace LoginSystemHomework.Registration
 {
-	public class RegistrationUser : User, IRegistrationUser
+	public class RegistrationUser : UserService, IRegistrationUser
 	{
-		public RegistrationUser(FileDatabase fileDatabase) : base(fileDatabase)
+		public RegistrationUser() : base()
 		{
 		}
 
 		public bool Register(string username, string password)
 		{
-			if (UsernameExists(username))
+			if (base.UsernameExists(username))
 			{
 				return false;
 			}
 
-			base._fileDatabase.AddUser(username, password);
+			base.AddUser(username, password);
 			return true;
 		}
 	}

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace LoginSystemHomework.Interfaces
 {
-	public interface IUser
+	public interface IUserService
 	{
 		public bool UsernameExists(string username);
+
+		void AddUser(string username, string password);
 	}
 }

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace LoginSystemHomework.Login
 {
-	public class LoginUser : User, ILoginUser
+	public class LoginUser : UserService, ILoginUser
 	{
-		public LoginUser(FileDatabase fileDatabase) : base(fileDatabase)
+		public LoginUser() : base()
 		{
 		}
 
-		public bool ValidateLogin(string username, string password) => base._fileDatabase.ValidateUser(username, password);
+		public bool ValidateLogin(string username, string password) => base.UsernameExists(username);
 	}
 }

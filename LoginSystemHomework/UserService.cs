@@ -8,15 +8,12 @@ using System.Threading.Tasks;
 
 namespace LoginSystemHomework
 {
-	public class User : IUser
+	public class UserService : IUserService
 	{
-		protected readonly FileDatabase _fileDatabase; // it's protected in order to other child classes to reach and use it
-
-		public User(FileDatabase fileDatabase)
-		{
-			_fileDatabase = fileDatabase;
-		}
+		private static FileDatabase _fileDatabase = new FileDatabase();
 
 		public bool UsernameExists(string username) => _fileDatabase.IsUserExisting(username);
+
+		public void AddUser(string username, string password) => _fileDatabase.AddUser(username, password);
 	}
 }
