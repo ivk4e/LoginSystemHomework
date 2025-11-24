@@ -182,7 +182,9 @@ namespace LoginSystemHomework
 				string input = Console.ReadLine();
 
 				if (validate(input))
+				{
 					return input;
+				}
 
 				Console.WriteLine(errorMessage);
 			}
