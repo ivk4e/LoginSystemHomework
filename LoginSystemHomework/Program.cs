@@ -1,6 +1,7 @@
 ﻿using LoginSystemHomework.Db;
 using LoginSystemHomework.Login;
 using LoginSystemHomework.Registration;
+using System.Linq.Expressions;
 using System.Net.Http.Headers;
 
 namespace LoginSystemHomework
@@ -73,11 +74,7 @@ namespace LoginSystemHomework
 			{
 				string loginUsername = ReadValidatedInput(
 					"Username: ",
-					input =>
-					{
-						// just allow "0" temporarily
-						return input == "0" || (!string.IsNullOrWhiteSpace(input) && loginUser.UsernameExists(input));
-					},
+					input => input == "0" || (!string.IsNullOrWhiteSpace(input) && loginUser.UsernameExists(input)),
 					"Invalid username!"
 				);
 
@@ -187,6 +184,20 @@ namespace LoginSystemHomework
 				Console.WriteLine(errorMessage);
 			}
 		}
+
+		#region method-for-validate
+
+		//public static bool Validate(string input, RegistrationUser registerUser)
+		//{
+		//	if (!string.IsNullOrEmpty(input) && input.Length >= 3 && !registerUser.UsernameExists(input))
+		//	{
+		//		return true;
+		//	}
+
+		//	return false;
+		//}
+
+		#endregion method-for-validate
 
 		#endregion Registration User
 	}
