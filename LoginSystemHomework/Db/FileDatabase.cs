@@ -10,11 +10,10 @@ namespace LoginSystemHomework.Db
 {
 	public class FileDatabase : IFileDatabase
 	{
-		private readonly string _filePath;
+		private const string _filePath = "users.txt";
 
-		public FileDatabase(string filePath)
+		public FileDatabase()
 		{
-			_filePath = filePath;
 			CreateFileIfNotExists();
 		}
 

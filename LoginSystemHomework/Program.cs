@@ -28,7 +28,7 @@ namespace LoginSystemHomework
 				}
 			}
 
-			var db_file = new FileDatabase("users.txt");
+			var db_file = new FileDatabase();
 
 			var loginUser = new LoginUser(db_file);
 			var registerUser = new RegistrationUser(db_file);
